@@ -1,0 +1,91 @@
+import type { SubscriptionContractModel } from '../domain/subscription.js';
+
+/** Static fixtures mimicking Shopify SubscriptionContract payloads (simplified). */
+export const subscriptionFixtures: SubscriptionContractModel[] = [
+  {
+    id: 'sub_01',
+    customerId: 'cust_01',
+    status: 'ACTIVE',
+    createdAt: '2025-01-10T12:00:00.000Z',
+    nextBillingDate: '2026-06-01T00:00:00.000Z',
+    billingInterval: 'MONTH',
+    billingIntervalCount: 1,
+    pausedUntil: null,
+    cancellationReason: null,
+    lineItems: [
+      {
+        id: 'line_01',
+        title: 'Daily Greens Blend',
+        quantity: 1,
+        variantTitle: '30 servings',
+        currentPrice: { amount: '29.00', currencyCode: 'USD' },
+      },
+      {
+        id: 'line_02',
+        title: 'Electrolyte Mix',
+        quantity: 2,
+        variantTitle: 'Lemon',
+        currentPrice: { amount: '18.50', currencyCode: 'USD' },
+      },
+    ],
+    shippingAddress: {
+      formatted: ['Jane Doe', '221B Baker Street', 'London NW1', 'United Kingdom'],
+      firstName: 'Jane',
+      lastName: 'Doe',
+      address1: '221B Baker Street',
+      city: 'London',
+      province: 'England',
+      country: 'GB',
+      zip: 'NW1 6XE',
+    },
+  },
+  {
+    id: 'sub_02',
+    customerId: 'cust_01',
+    status: 'PAUSED',
+    createdAt: '2025-03-01T08:30:00.000Z',
+    nextBillingDate: '2026-07-15T00:00:00.000Z',
+    billingInterval: 'WEEK',
+    billingIntervalCount: 2,
+    pausedUntil: '2026-08-01T00:00:00.000Z',
+    cancellationReason: null,
+    lineItems: [
+      {
+        id: 'line_03',
+        title: 'Protein Bar — Variety Pack',
+        quantity: 1,
+        currentPrice: { amount: '24.99', currencyCode: 'USD' },
+      },
+    ],
+    shippingAddress: {
+      formatted: ['Jane Doe', '221B Baker Street', 'London NW1', 'United Kingdom'],
+      firstName: 'Jane',
+      lastName: 'Doe',
+      address1: '221B Baker Street',
+      city: 'London',
+      province: 'England',
+      country: 'GB',
+      zip: 'NW1 6XE',
+    },
+  },
+  {
+    id: 'sub_03',
+    customerId: 'cust_02',
+    status: 'CANCELLED',
+    createdAt: '2024-11-20T10:00:00.000Z',
+    nextBillingDate: null,
+    billingInterval: 'MONTH',
+    billingIntervalCount: 3,
+    pausedUntil: null,
+    cancellationReason: 'Too much stock at home',
+    lineItems: [
+      {
+        id: 'line_04',
+        title: 'Vitamin D Drops',
+        quantity: 1,
+        currentPrice: { amount: '15.00', currencyCode: 'USD' },
+      },
+    ],
+    shippingAddress: null,
+  },
+];
