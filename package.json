@@ -1,0 +1,11 @@
+{
+  "name": "valar-subscription-dashboard",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c cyan,magenta \"npm run dev -w backend\" \"npm run dev -w frontend\""
+  },
+  "workspaces": ["backend", "frontend"],
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
